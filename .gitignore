@@ -1,0 +1,25 @@
+# Configuracion de disc
+config.json
+
+# Logs y archivos temporales
+*.log
+*.tmp
+*.temp
+
+# Archivos generados por npm/yarn
+package-lock.json
+yarn.lock
+
+# Archivos de depuración
+debug.log
+
+# Archivos del sistema y del IDE
+.DS_Store
+.idea/
+.vscode/
+*.code-workspace
+
+# Carpeta de salida (si usas TypeScript o compilación)
+dist/
+build/
+out/
