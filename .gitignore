@@ -23,3 +23,6 @@ debug.log
 dist/
 build/
 out/
+
+#documentacion ds.js
+node_modules
