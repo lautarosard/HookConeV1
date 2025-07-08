@@ -3,6 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, GatewayIntentBits, Events } = require('discord.js');
 const { token } = require('./config.json');
+const { iniciarServidorExpress } = require('./express-server');
 
 const client = new Client({
     intents: [
@@ -14,6 +15,12 @@ const client = new Client({
 
 client.once('ready', () => {
     console.log(`Bot iniciado como ${client.user.tag}`);
+});
+
+//Express
+client.once('ready', () => {
+    console.log(`Bot iniciado como ${client.user.tag}`);
+    iniciarServidorExpress(client); // Le pasás el bot al server
 });
 
 client.commands = new Collection();
