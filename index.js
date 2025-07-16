@@ -13,18 +13,16 @@ const client = new Client({
     ],
 });
 
-client.once('ready', () => {
-    console.log(`Bot iniciado como ${client.user.tag}`);
-});
-
 //Express
 client.once('ready', () => {
     console.log(`Bot iniciado como ${client.user.tag}`);
     iniciarServidorExpress(client); // Le pasás el bot al server
 });
 
+//guarda los comandos
 client.commands = new Collection();
 
+//recorre los la carpeta commands y busca los comandos
 const commandsPath = path.join(__dirname, 'commands');
 const commandFolders = fs.readdirSync(commandsPath);
 
