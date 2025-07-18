@@ -1,3 +1,4 @@
+const { crearEmbedIA } = require('./IAEmbed');
 const { crearEmbedRedditConApi } = require('./RedditEmbed');
 
 async function crearEmbedDesdeURL({ titulo, urlImagen, permalink, posthint }) {
@@ -28,4 +29,18 @@ async function crearEmbedDesdeURL({ titulo, urlImagen, permalink, posthint }) {
     }
 }
 
-module.exports = { crearEmbedDesdeURL };
+async function crearEmbedDesdeTexto(opc, texto) {
+    try{
+        if(opc == 1){
+            const embed = crearEmbedIA(texto);
+            return embed;
+        }else{
+            console.log("No existe un embed con esta opción 💔");
+            return null;
+        }
+    }catch(error){
+        console.error('Error en crearEmbedDesdeTexto:', error.message);
+        return null;
+    }
+}
+module.exports = { crearEmbedDesdeURL, crearEmbedDesdeTexto };
